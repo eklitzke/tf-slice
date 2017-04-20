@@ -36,7 +36,7 @@ ix = tf.placeholder(shape=(), dtype=tf.int32)
 # The mini-batch of data we'll work on.
 batch = tf.slice(tf_data, [BATCH_SIZE * ix, 0], [BATCH_SIZE, -1])
 
-# The output of the calculation.
+# The output of the Tensorflow graph.
 outp = tf.reduce_sum(tf.square(batch))
 
 with tf.Session() as sess:
