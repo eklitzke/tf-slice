@@ -10,7 +10,7 @@ HEIGHT = 10
 BATCH_SIZE = 2
 
 # Create a 10x3 matrix in numpy; this lives in main memory (*not* the GPU).
-np_data = np.array(range(30)).reshape(10, 3)
+np_data = np.array(range(30), dtype=np.float32).reshape(10, 3)
 
 print('numpy data (in main memory)')
 print('---------------------------')
