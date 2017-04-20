@@ -28,13 +28,13 @@ random.shuffle(INDEXES)
 
 # Copy the numpy data into TF memory as a constant var; this will be copied
 # exactly one time into the GPU (if one is available).
-gpu_data = tf.constant(np_data, dtype=tf.float32)
+tf_data = tf.constant(np_data, dtype=tf.float32)
 
 # The index to use when generating our mini-batch.
 ix = tf.placeholder(shape=(), dtype=tf.int32)
 
 # The mini-batch of data we'll work on.
-batch = tf.slice(gpu_data, [BATCH_SIZE * ix, 0], [BATCH_SIZE, -1])
+batch = tf.slice(tf_data, [BATCH_SIZE * ix, 0], [BATCH_SIZE, -1])
 
 # The output of the calculation.
 outp = tf.reduce_sum(tf.square(batch))
